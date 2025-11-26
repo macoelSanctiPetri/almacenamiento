@@ -2,36 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Unidades de almacenamiento - 4º ESO</title>
+  <title>Unidades de almacenamiento - 4º ESO (Alumno)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--
     Autor: Manuel López Coello
-    Recurso: Conversor de unidades de almacenamiento con potencias de 2
+    Recurso: Unidades de almacenamiento y potencias de 2 (versión alumno)
     Licencia: Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional
               (CC BY-NC-SA 4.0)
-    Se permite copiar, adaptar y compartir citando la autoría, siempre que no haya fines comerciales
-    y las obras derivadas se distribuyan con la misma licencia.
   -->
   <style>
     * {
       box-sizing: border-box;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-
-	.cc-logo {
-	  display: inline-flex;
-	  align-items: center;
-	  justify-content: center;
-	  width: 2.2rem;
-	  height: 2.2rem;
-	  border-radius: 999px;
-	  border: 2px solid #e5e7eb;
-	  font-weight: 700;
-	  font-size: 0.9rem;
-	  letter-spacing: 0.03em;
-	  margin-bottom: 0.25rem;
-	  margin-right: 0.25rem;
-	}
 
     body {
       margin: 0;
@@ -67,6 +50,11 @@
     p {
       line-height: 1.5;
       color: #e5e7eb;
+    }
+
+    .top-actions {
+      text-align: right;
+      margin-bottom: 0.5rem;
     }
 
     .intro {
@@ -218,7 +206,7 @@
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content:center;
       border: 1px solid #374151;
       border-radius: 0.35rem;
       padding: 0.15rem 0.5rem;
@@ -249,13 +237,171 @@
 
     .cancelled {
       text-decoration: line-through;
-      text-decoration-color: #f97316;   /* naranja */
+      text-decoration-color: #f97316;
       text-decoration-thickness: 2px;
       opacity: 0.9;
     }
 
     sup {
       font-size: 0.75em;
+    }
+
+    /* Inputs para la sección de práctica */
+    .frac-input {
+      width: 4.2rem;
+      margin: 0 0.1rem;
+      text-align: center;
+      background: #020617;
+      border-radius: 0.35rem;
+      border: 1px solid #4b5563;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+    }
+
+    .frac-input.unit {
+      width: 4.8rem;
+    }
+
+    .frac-input.ok {
+      border-color: #4ade80;
+      box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.4);
+    }
+
+    .frac-input.wrong {
+      border-color: #f97373;
+      box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.4);
+    }
+
+    .practice-grade-btn {
+      margin-top: 0.8rem;
+    }
+
+    /* Preguntas del modo examen */
+    .exam-question {
+      text-align: left;
+      margin: 0.5rem 0;
+      padding: 0.4rem 0.6rem;
+      border-radius: 0.5rem;
+      border: 1px solid #1f2937;
+      background: #020617;
+    }
+
+    .exam-question-title {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .exam-answer-row {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+
+    /* Línea de unidades (timeline) */
+    .timeline-box {
+      margin-top: 1rem;
+      background: #020617;
+      border-radius: 0.8rem;
+      border: 1px solid #1f2937;
+      padding: 1rem 1.2rem;
+    }
+
+    .timeline-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .timeline-unit {
+      width: 90px;
+      height: 90px;
+      border-radius: 999px;
+      border: 2px solid #4b5563;
+      background: radial-gradient(circle at 30% 30%, #1f2937, #020617);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.4rem;
+      box-shadow: 0 0 10px rgba(15, 23, 42, 0.7);
+    }
+
+    .timeline-unit-name {
+      font-weight: 700;
+      color: #e5e7eb;
+      font-size: 0.95rem;
+    }
+
+    .timeline-unit-symbol {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-top: 0.15rem;
+    }
+
+    .timeline-connector {
+      position: relative;
+      width: 180px;
+      height: 70px;
+    }
+
+    .timeline-connector-line {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      top: 50%;
+      border-top: 2px solid #4b5563;
+      transform: translateY(-50%);
+    }
+
+    .timeline-connector::after {
+      content: "";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 7px 0 7px 11px;
+      border-style: solid;
+      border-color: transparent transparent transparent #4ade80;
+    }
+
+    .timeline-connector::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 7px 11px 7px 0;
+      border-style: solid;
+      border-color: transparent #facc15 transparent transparent;
+    }
+
+    .arrow-label {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .arrow-label-right {
+      top: 6px;
+      color: #4ade80;
+    }
+
+    .arrow-label-left {
+      bottom: 6px;
+      color: #facc15;
+    }
+
+    .arrow-label sup {
+      font-size: 0.7em;
     }
 
     /* Footer de licencia */
@@ -285,32 +431,100 @@
       .fraction {
         min-width: 70px;
       }
+
+      .timeline-connector {
+        width: 150px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #000000;
+      }
+      .container {
+        max-width: none;
+        padding: 0.5rem;
+      }
+      .intro, .card, .converter, .timeline-box {
+        background: #ffffff;
+        color: #000000;
+        border-color: #000000;
+      }
+      .steps-result {
+        color: #000000;
+      }
+      .license {
+        color: #000000;
+        border-color: #000000;
+      }
+      button {
+        background: #ffffff !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+      }
+      .top-actions {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
   <main class="container">
-    <h1>Unidades de almacenamiento digital</h1>
-    <p style="text-align:center; margin-bottom:1rem;">App para 4º ESO · Tecnologías / Informática</p>
+    <div class="top-actions">
+      <button id="printBtn">Imprimir esta página</button>
+    </div>
 
+    <h1>Unidades de almacenamiento digital</h1>
+    <p style="text-align:center; margin-bottom:1rem;">Versión alumno · 4º ESO · Tecnologías / Informática</p>
+
+    <!-- INTRO -->
     <section class="intro">
       <p>
         La información en un ordenador se guarda usando solo dos valores: <span class="highlight">0 y 1</span>. 
-        Cada uno de esos valores se llama <span class="highlight">bit</span>. A partir de los bits construimos 
+        Cada uno de esos valores se llama <span class="highlight">bit</span>. A partir de los bits se construyen 
         unidades más grandes para poder medir mejor cuánta información hay.
       </p>
+
       <p>
-        En esta página tus alumnos podrán repasar las unidades más usadas y convertir fácilmente entre ellas.
-        Usaremos la equivalencia habitual en informática:
-        <span class="highlight">1 KB = 2<sup>10</sup> B</span>.
+        Durante muchos años, en informática se usó la palabra <strong>kilobyte (KB)</strong> para referirse a 
+        <span class="highlight">1024 bytes (2<sup>10</sup>)</span>, porque casi todo se basaba en potencias de 2.  
+        Sin embargo, en el Sistema Internacional de Unidades, <strong>kilo</strong> siempre ha significado 
+        <strong>1000</strong> (10<sup>3</sup>), no 1024.
+      </p>
+
+      <p>
+        Para evitar confusiones entre “mundo decimal” (1000) y “mundo binario” (1024), se decidió crear una 
+        nomenclatura nueva basada en binario:
+        <br>
+        – <strong>KiB</strong> (kibibyte) = <span class="highlight">1024 B = 2<sup>10</sup> B</span><br>
+        – <strong>MiB</strong> (mebibyte) = 2<sup>20</sup> B<br>
+        – <strong>GiB</strong> (gibibyte) = 2<sup>30</sup> B<br>
+        – <strong>TiB</strong> (tebibyte) = 2<sup>40</sup> B<br>
+        y así sucesivamente.
+      </p>
+
+      <p>
+        En la práctica, muchos programas, sistemas operativos y libros siguen usando 
+        <strong>KB, MB, GB, TB</strong> como si fueran KiB, MiB, GiB, TiB, es decir, basados en potencias de 2.
+        <br>
+        <span class="highlight">
+          En esta aplicación haremos lo mismo: usaremos KB, MB, GB, TB como si fueran 2<sup>10</sup>, 2<sup>20</sup>, 
+          2<sup>30</sup>, 2<sup>40</sup> bytes, respectivamente.
+        </span>
+      </p>
+
+      <p style="font-size:0.85rem; color:#9ca3af;">
+        Recuerda: <strong>b</strong> (minúscula) son <strong>bits</strong> y <strong>B</strong> (mayúscula) son <strong>Bytes</strong>.
       </p>
     </section>
 
+    <!-- 1. EXPLICACIÓN UNIDADES -->
     <h2>1. Explicación de las unidades</h2>
     <section class="cards">
       <article class="card">
         <h3>Bit</h3>
-        <div class="symbol"><strong>Símbolo:</strong> bit</div>
+        <div class="symbol"><strong>Símbolo:</strong> bit (b)</div>
         <p>
           Es la unidad de información más pequeña. Solo puede tomar dos valores: 0 ó 1.  
           Todo lo que ves en una pantalla (texto, imágenes, música, vídeos…) acaba siendo una larga secuencia de bits.
@@ -322,7 +536,7 @@
         <h3>Byte</h3>
         <div class="symbol"><strong>Símbolo:</strong> B</div>
         <p>
-          Un byte está formado por <span class="highlight">8 = 2<sup>3</sup> bits</span>.  
+          <span class="highlight">1 B = 8 bits = 2<sup>3</sup> bits</span>.  
           Muchos sistemas usan el byte como unidad básica para contar memoria y tamaño de archivos.
         </p>
         <p class="example"><strong>Ejemplo:</strong> Una letra de texto ocupa normalmente 1 byte.</p>
@@ -334,7 +548,7 @@
         <p>
           Un kilobyte se usa para medir cantidades pequeñas de información.
           En informática solemos usar:
-          <span class="highlight">1 KB = 2<sup>10</sup> bytes</span>.
+          <span class="highlight">1 KB = 2<sup>10</sup> B</span>.
         </p>
         <p class="example"><strong>Ejemplo:</strong> Un fichero de texto muy corto puede ocupar 2–3 KB.</p>
       </article>
@@ -343,7 +557,7 @@
         <h3>Megabyte</h3>
         <div class="symbol"><strong>Símbolo:</strong> MB</div>
         <p>
-          1 MB = 2<sup>10</sup> KB = 2<sup>20</sup> B.  
+          <span class="highlight">1 MB = 2<sup>10</sup> KB = 2<sup>20</sup> B</span>.  
           Unidad habitual en fotos, canciones, pequeños programas…
         </p>
         <p class="example"><strong>Ejemplo:</strong> Una foto hecha con el móvil puede ocupar 2–5 MB.</p>
@@ -353,7 +567,7 @@
         <h3>Gigabyte</h3>
         <div class="symbol"><strong>Símbolo:</strong> GB</div>
         <p>
-          1 GB = 2<sup>10</sup> MB = 2<sup>30</sup> B.  
+          <span class="highlight">1 GB = 2<sup>10</sup> MB = 2<sup>30</sup> B</span>.  
           Se usa para discos duros, memorias USB, etc.
         </p>
         <p class="example"><strong>Ejemplo:</strong> Un pendrive puede tener 16 GB o 32 GB.</p>
@@ -363,21 +577,344 @@
         <h3>Terabyte</h3>
         <div class="symbol"><strong>Símbolo:</strong> TB</div>
         <p>
-          1 TB = 2<sup>10</sup> GB = 2<sup>40</sup> B.  
+          <span class="highlight">1 TB = 2<sup>10</sup> GB = 2<sup>40</sup> B</span>.  
           Muy habitual en discos duros actuales.
         </p>
         <p class="example"><strong>Ejemplo:</strong> Un disco duro de 1 TB puede almacenar cientos de miles de fotos.</p>
       </article>
+
+      <article class="card">
+        <h3>Petabyte</h3>
+        <div class="symbol"><strong>Símbolo:</strong> PB</div>
+        <p>
+          <span class="highlight">1 PB = 2<sup>10</sup> TB = 2<sup>50</sup> B</span>.  
+          Se usa para medir cantidades enormes de datos, por ejemplo en grandes centros de datos.
+        </p>
+        <p class="example"><strong>Ejemplo:</strong> Algunos proveedores en la nube almacenan petabytes de información de sus usuarios.</p>
+      </article>
+
+      <article class="card">
+        <h3>Exabyte</h3>
+        <div class="symbol"><strong>Símbolo:</strong> EB</div>
+        <p>
+          <span class="highlight">1 EB = 2<sup>10</sup> PB = 2<sup>60</sup> B</span>.  
+          Es una unidad gigantesca, usada para hablar del tráfico global de Internet o el volumen total de datos mundiales.
+        </p>
+        <p class="example"><strong>Ejemplo:</strong> El tráfico de datos mundial anual puede medirse en exabytes.</p>
+      </article>
     </section>
 
-    <h2>2. Conversor entre unidades (con potencias de 2)</h2>
+    <!-- 2. LÍNEA DE UNIDADES -->
+    <h2>2. Línea de unidades y relaciones</h2>
+    <section class="timeline-box">
+      <p style="text-align:center; margin-top:0;">
+        De menor a mayor unidad. La etiqueta de arriba indica cómo <strong>subir</strong> (multiplicar) y la de abajo cómo <strong>bajar</strong> (dividir).
+      </p>
+      <div class="timeline-line">
+        <div class="timeline-unit">
+          <div class="timeline-unit-name">bit</div>
+          <div class="timeline-unit-symbol">(b)</div>
+        </div>
+
+        <div class="timeline-connector">
+          <div class="timeline-connector-line"></div>
+          <div class="arrow-label arrow-label-right">× 2<sup>3</sup></div>
+          <div class="arrow-label arrow-label-left">÷ 2<sup>3</sup></div>
+        </div>
+
+        <div class="timeline-unit">
+          <div class="timeline-unit-name">Byte</div>
+          <div class="timeline-unit-symbol">(B)</div>
+        </div>
+
+        <div class="timeline-connector">
+          <div class="timeline-connector-line"></div>
+          <div class="arrow-label arrow-label-right">× 2<sup>10</sup></div>
+          <div class="arrow-label arrow-label-left">÷ 2<sup>10</sup></div>
+        </div>
+
+        <div class="timeline-unit">
+          <div class="timeline-unit-name">Kilobyte</div>
+          <div class="timeline-unit-symbol">(KB)</div>
+        </div>
+
+        <div class="timeline-connector">
+          <div class="timeline-connector-line"></div>
+          <div class="arrow-label arrow-label-right">× 2<sup>10</sup></div>
+          <div class="arrow-label arrow-label-left">÷ 2<sup>10</sup></div>
+        </div>
+
+        <div class="timeline-unit">
+          <div class="timeline-unit-name">Megabyte</div>
+          <div class="timeline-unit-symbol">(MB)</div>
+        </div>
+
+        <div class="timeline-connector">
+          <div class="timeline-connector-line"></div>
+          <div class="arrow-label arrow-label-right">× 2<sup>10</sup></div>
+          <div class="arrow-label arrow-label-left">÷ 2<sup>10</sup></div>
+        </div>
+
+        <div class="timeline-unit">
+          <div class="timeline-unit-name">Gigabyte</div>
+          <div class="timeline-unit-symbol">(GB)</div>
+        </div>
+
+        <div class="timeline-connector">
+          <div class="timeline-connector-line"></div>
+          <div class="arrow-label arrow-label-right">× 2<sup>10</sup></div>
+          <div class="arrow-label arrow-label-left">÷ 2<sup>10</sup></div>
+        </div>
+
+        <div class="timeline-unit">
+          <div class="timeline-unit-name">Terabyte</div>
+          <div class="timeline-unit-symbol">(TB)</div>
+        </div>
+
+        <div class="timeline-connector">
+          <div class="timeline-connector-line"></div>
+          <div class="arrow-label arrow-label-right">× 2<sup>10</sup></div>
+          <div class="arrow-label arrow-label-left">÷ 2<sup>10</sup></div>
+        </div>
+
+        <div class="timeline-unit">
+          <div class="timeline-unit-name">Petabyte</div>
+          <div class="timeline-unit-symbol">(PB)</div>
+        </div>
+
+        <div class="timeline-connector">
+          <div class="timeline-connector-line"></div>
+          <div class="arrow-label arrow-label-right">× 2<sup>10</sup></div>
+          <div class="arrow-label arrow-label-left">÷ 2<sup>10</sup></div>
+        </div>
+
+        <div class="timeline-unit">
+          <div class="timeline-unit-name">Exabyte</div>
+          <div class="timeline-unit-symbol">(EB)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. EJEMPLOS RESUELTOS (SIN CONVERSOR) -->
+    <h2>3. Ejemplos de conversiones resueltas</h2>
     <section class="converter">
       <p style="text-align:center; margin-top:0;">
-        Escribe una cantidad, elige la unidad de origen y la unidad de destino.
+        A continuación se muestran ejemplos de conversiones de unidades
+        más grandes a más pequeñas y también de unidades pequeñas a más grandes.
+        Se usan fracciones, unidades tachadas y potencias de 2.
+      </p>
+
+      <!-- Ejemplo 1: 12 GB a MB -->
+      <article class="card">
+        <h3>Ejemplo 1 · De GB a MB (unidad mayor → menor)</h3>
+        <p><strong>Conversión:</strong> 12 GB → MB</p>
+
+        <div class="steps">
+          <div class="steps-line">
+            <span class="steps-value">12 <span class="unit">GB</span></span>
+            <span class="steps-eq">=</span>
+            <span class="steps-value">12 <span class="unit cancelled">GB</span></span>
+            <span class="steps-mul">×</span>
+
+            <span class="fraction">
+              <span class="top">
+                2<sup>10</sup> MB
+              </span>
+              <span class="bottom">
+                1 <span class="cancelled">GB</span>
+              </span>
+            </span>
+
+            <span class="steps-eq">=</span>
+            <span class="steps-result">
+              12 × 2<sup>10</sup> MB
+            </span>
+          </div>
+        </div>
+
+        <p class="steps-text">
+          Descomponemos 12 en potencias de 2:  
+          12 = 3 × 2<sup>2</sup>.  
+          Entonces:
+        </p>
+
+        <div class="steps">
+          <div class="steps-line">
+            <span class="steps-value">
+              12 × 2<sup>10</sup> MB
+            </span>
+            <span class="steps-eq">=</span>
+            <span class="steps-result">
+              3 × 2<sup>2</sup> × 2<sup>10</sup> MB = 3 × 2<sup>12</sup> MB
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ejemplo 2: 5 MB a B -->
+      <article class="card">
+        <h3>Ejemplo 2 · De MB a B (pasando por KB)</h3>
+        <p><strong>Conversión:</strong> 5 MB → B</p>
+
+        <div class="steps">
+          <div class="steps-line">
+            <span class="steps-value">5 <span class="unit">MB</span></span>
+            <span class="steps-eq">=</span>
+            <span class="steps-value">5 <span class="unit cancelled">MB</span></span>
+            <span class="steps-mul">×</span>
+
+            <span class="fraction">
+              <span class="top">
+                2<sup>10</sup> <span class="cancelled">KB</span>
+              </span>
+              <span class="bottom">
+                1 <span class="cancelled">MB</span>
+              </span>
+            </span>
+
+            <span class="steps-mul">×</span>
+
+            <span class="fraction">
+              <span class="top">
+                2<sup>10</sup> B
+              </span>
+              <span class="bottom">
+                1 <span class="cancelled">KB</span>
+              </span>
+            </span>
+
+            <span class="steps-eq">=</span>
+            <span class="steps-result">
+              5 × 2<sup>10</sup> × 2<sup>10</sup> B = 5 × 2<sup>20</sup> B
+            </span>
+          </div>
+        </div>
+
+        <p class="steps-text">
+          En este caso 5 no es múltiplo de 2, así que ya está descompuesto:  
+          resultado final: <strong>5 × 2<sup>20</sup> B</strong>.
+        </p>
+      </article>
+
+      <!-- Ejemplo 3: 4096 B a KB -->
+      <article class="card">
+        <h3>Ejemplo 3 · De B a KB (unidad menor → mayor)</h3>
+        <p><strong>Conversión:</strong> 4096 B → KB</p>
+
+        <div class="steps">
+          <div class="steps-line">
+            <span class="steps-value">4096 <span class="unit">B</span></span>
+            <span class="steps-eq">=</span>
+            <span class="steps-value">4096 <span class="unit cancelled">B</span></span>
+            <span class="steps-mul">×</span>
+
+            <span class="fraction">
+              <span class="top">
+                1 KB
+              </span>
+              <span class="bottom">
+                2<sup>10</sup> <span class="cancelled">B</span>
+              </span>
+            </span>
+
+            <span class="steps-eq">=</span>
+            <span class="steps-result">
+              4096 ÷ 2<sup>10</sup> KB
+            </span>
+          </div>
+        </div>
+
+        <p class="steps-text">
+          4096 es una potencia de 2:  
+          4096 = 2<sup>12</sup>.  
+          Entonces:
+        </p>
+
+        <div class="steps">
+          <div class="steps-line">
+            <span class="steps-value">
+              4096 ÷ 2<sup>10</sup> KB
+            </span>
+            <span class="steps-eq">=</span>
+            <span class="steps-result">
+              2<sup>12</sup> ÷ 2<sup>10</sup> KB = 2<sup>2</sup> KB = 4 KB
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ejemplo 4: 8192 b a B y a KB -->
+      <article class="card">
+        <h3>Ejemplo 4 · De bits a bytes y kilobytes</h3>
+        <p><strong>Conversión:</strong> 8192 b → B → KB</p>
+
+        <p class="steps-text"><strong>Primero, de bits a bytes:</strong></p>
+        <div class="steps">
+          <div class="steps-line">
+            <span class="steps-value">8192 <span class="unit">b</span></span>
+            <span class="steps-eq">=</span>
+            <span class="steps-value">8192 <span class="unit cancelled">b</span></span>
+            <span class="steps-mul">×</span>
+
+            <span class="fraction">
+              <span class="top">
+                1 B
+              </span>
+              <span class="bottom">
+                8 <span class="cancelled">b</span>
+              </span>
+            </span>
+
+            <span class="steps-eq">=</span>
+            <span class="steps-result">
+              8192 ÷ 8 B = 1024 B
+            </span>
+          </div>
+        </div>
+
+        <p class="steps-text"><strong>Después, de bytes a kilobytes:</strong></p>
+        <div class="steps">
+          <div class="steps-line">
+            <span class="steps-value">1024 <span class="unit">B</span></span>
+            <span class="steps-eq">=</span>
+            <span class="steps-value">1024 <span class="unit cancelled">B</span></span>
+            <span class="steps-mul">×</span>
+
+            <span class="fraction">
+              <span class="top">
+                1 KB
+              </span>
+              <span class="bottom">
+                2<sup>10</sup> <span class="cancelled">B</span>
+              </span>
+            </span>
+
+            <span class="steps-eq">=</span>
+            <span class="steps-result">
+              1024 ÷ 2<sup>10</sup> KB = 1 KB
+            </span>
+          </div>
+        </div>
+
+        <p class="steps-text">
+          Descomposición en potencias de 2:
+          <br>
+          8192 = 2<sup>13</sup>, &nbsp; 8 = 2<sup>3</sup> ⇒ 8192 ÷ 8 = 2<sup>13</sup> ÷ 2<sup>3</sup> = 2<sup>10</sup> B = 1024 B.  
+          Y 1024 = 2<sup>10</sup>, así que <strong>1024 B = 1 KB</strong>.
+        </p>
+      </article>
+    </section>
+
+    <!-- 4. MODO PRÁCTICA -->
+    <h2>4. Modo práctica: completa las fracciones de conversión</h2>
+    <section class="converter">
+      <p style="text-align:center; margin-top:0;">
+        Elige un valor y las unidades. Completa las fracciones de conversión usando potencias de 2 (por ejemplo, <code>2^10</code>).<br/>
+        Recuerda usar <strong>b</strong> para bits y <strong>B</strong> para Bytes.
       </p>
       <div class="converter-row">
-        <input id="valueInput" type="text" placeholder="Cantidad (ej. 1, 4, 12, 28, 512, 1024)" />
-        <select id="fromUnit">
+        <input id="practiceValue" type="text" placeholder="Cantidad (ej. 12)" />
+        <select id="practiceFromUnit">
           <option value="bit">bit</option>
           <option value="byte">Byte (B)</option>
           <option value="kb">Kilobyte (KB)</option>
@@ -386,43 +923,59 @@
           <option value="tb">Terabyte (TB)</option>
         </select>
         <span>→</span>
-        <select id="toUnit">
+        <select id="practiceToUnit">
           <option value="bit">bit</option>
-          <option value="byte" selected>Byte (B)</option>
+          <option value="byte">Byte (B)</option>
           <option value="kb">Kilobyte (KB)</option>
           <option value="mb">Megabyte (MB)</option>
           <option value="gb">Gigabyte (GB)</option>
           <option value="tb">Terabyte (TB)</option>
         </select>
-        <button id="convertBtn">Convertir</button>
+        <button id="createExerciseBtn">Crear ejercicio</button>
       </div>
 
-      <div id="result" class="result"></div>
-      <div class="note">
-        Siempre que se pueda, el resultado se da en términos de potencias de 2, sin expandir a números gigantes.
-      </div>
+      <div id="practiceArea" class="result"></div>
     </section>
 
-	<footer class="license">
-	  <p>
-		<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-		   target="_blank" rel="license noopener noreferrer">
-		  <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png"
-			   alt="Licencia Creative Commons BY-NC-SA 4.0"
-			   style="border-width:0" />
-		</a><br />
-		<strong>2025 Manuel López Coello</strong><br />
-		Este recurso educativo se distribuye bajo licencia
-		<em>Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</em>.<br />
-		Se permite copiar, adaptar y compartir citando la autoría y sin fines comerciales,
-		manteniendo la misma licencia en las obras derivadas.
-	  </p>
-	</footer>
+    <!-- 5. MODO EXAMEN -->
+    <h2>5. Modo examen rápido</h2>
+    <section class="converter">
+      <p style="text-align:center; margin-top:0;">
+        Se generarán varias conversiones. Para cada una, escribe el resultado en la forma<br/>
+        <strong>a × 2<sup>n</sup> (unidad destino)</strong>, con <strong>a</strong> sin factores de 2 (es decir, que no sea múltiplo de 2 si es posible).
+      </p>
+      <div class="converter-row">
+        <span>Número de preguntas:</span>
+        <select id="examQuestionCount">
+          <option value="3">3</option>
+          <option value="5" selected>5</option>
+          <option value="10">10</option>
+        </select>
+        <button id="generateExamBtn">Generar examen</button>
+      </div>
+      <div id="examArea" class="result"></div>
+    </section>
 
-
+    <!-- LICENCIA -->
+    <footer class="license">
+      <p>
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+           target="_blank" rel="license noopener noreferrer">
+          <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png"
+               alt="Licencia Creative Commons BY-NC-SA 4.0"
+               style="border-width:0" />
+        </a><br />
+        <strong>2025 Manuel López Coello</strong><br />
+        Este recurso educativo se distribuye bajo licencia
+        <em>Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)</em>.<br />
+        Se permite copiar, adaptar y compartir citando la autoría y sin fines comerciales,
+        manteniendo la misma licencia en las obras derivadas.
+      </p>
+    </footer>
   </main>
 
   <script>
+    // Solo necesitamos hasta TB para práctica/examen
     const baseExp = {
       bit: -3,
       byte: 0,
@@ -432,17 +985,8 @@
       tb: 40
     };
 
-    const names = {
-      bit: "bits",
-      byte: "Bytes",
-      kb: "Kilobytes",
-      mb: "Megabytes",
-      gb: "Gigabytes",
-      tb: "Terabytes"
-    };
-
     const symbols = {
-      bit: "bit",
+      bit: "b",
       byte: "B",
       kb: "KB",
       mb: "MB",
@@ -452,11 +996,11 @@
 
     const order = ["bit", "byte", "kb", "mb", "gb", "tb"];
 
-    const valueInput = document.getElementById("valueInput");
-    const fromUnit = document.getElementById("fromUnit");
-    const toUnit = document.getElementById("toUnit");
-    const resultDiv = document.getElementById("result");
-    const convertBtn = document.getElementById("convertBtn");
+    // Botón imprimir
+    const printBtn = document.getElementById("printBtn");
+    if (printBtn) {
+      printBtn.addEventListener("click", () => window.print());
+    }
 
     function powHTML(exp) {
       return `2<sup>${exp}</sup>`;
@@ -478,77 +1022,10 @@
       return { pow, rest, isInteger: true };
     }
 
-    function getPowerResult(value, from, to) {
-      const expFrom = baseExp[from];
-      const expTo = baseExp[to];
-      const ratioExp = expFrom - expTo;
-      const valueStr = value.toLocaleString("es-ES");
-      const unitFrom = symbols[from];
-      const unitTo = symbols[to];
-
-      if (ratioExp === 0) {
-        const shortHTML = `${valueStr} ${unitTo}`;
-        return { shortHTML, detailHTML: "" };
-      }
-
-      if (ratioExp > 0) {
-        const fact = factorPowerOfTwo(value);
-        const k = ratioExp;
-
-        if (!fact.isInteger || fact.pow === 0) {
-          const shortHTML = `${valueStr} × ${powHTML(k)} ${unitTo}`;
-          const detailHTML =
-            `${valueStr} ${unitFrom} = ` +
-            `${valueStr} × ${powHTML(k)} ${unitTo}`;
-          return { shortHTML, detailHTML };
-        }
-
-        const restStr = fact.rest.toLocaleString("es-ES");
-        const a = fact.pow;
-        const totalExp = a + k;
-
-        let shortHTML;
-        if (Math.abs(fact.rest - 1) < 1e-9) {
-          shortHTML = `${powHTML(totalExp)} ${unitTo}`;
-        } else {
-          shortHTML = `${restStr} × ${powHTML(totalExp)} ${unitTo}`;
-        }
-
-        const detailHTML =
-          `${valueStr} ${unitFrom} = ` +
-          `${restStr} × ${powHTML(a)} ${unitFrom} ` +
-          `= ${restStr} × ${powHTML(a)} × ${powHTML(k)} ${unitTo} ` +
-          `= ${shortHTML}`;
-
-        return { shortHTML, detailHTML };
-      } else {
-        const k = -ratioExp;                
-        const shortHTML = `${valueStr} × ${powHTML(-k)} ${unitTo}`;
-        const detailHTML =
-          `${valueStr} ${unitFrom} = ` +
-          `${valueStr} / ${powHTML(k)} ${unitTo} ` +
-          `= ${shortHTML}`;
-        return { shortHTML, detailHTML };
-      }
-    }
-
-    function buildConversionSteps(value, from, to, finalShortHTML) {
+    function getSteps(from, to) {
       const fromIdx = order.indexOf(from);
       const toIdx = order.indexOf(to);
-      const valueStr = value.toLocaleString("es-ES");
-      const initialUnitHTML = symbols[from];
-
-      if (from === to) {
-        return `
-          <div class="steps">
-            <div class="steps-line">
-              <span class="steps-value">${valueStr} ${initialUnitHTML}</span>
-              <span class="steps-eq">=</span>
-              <span class="steps-result">${finalShortHTML}</span>
-            </div>
-          </div>
-        `;
-      }
+      if (fromIdx === -1 || toIdx === -1 || fromIdx === toIdx) return [];
 
       let dir = fromIdx < toIdx ? 1 : -1;
       let currentUnit = from;
@@ -580,88 +1057,314 @@
         currentIdx = nextIdx;
       }
 
+      return steps;
+    }
+
+function getPowerDecomposition(value, from, to) {
+  const expFrom = baseExp[from];
+  const expTo = baseExp[to];
+  const ratioExp = expFrom - expTo; // cuántas potencias de 2 hay entre unidades
+
+  // Si las unidades son iguales
+  if (ratioExp === 0) {
+    return { factor: value, exp: 0, unit: symbols[to] };
+  }
+
+  // Intentamos descomponer siempre el valor en 2^k
+  const fact = factorPowerOfTwo(value);
+
+  // Si no es entero o no tiene factores de 2, no podemos mejorar nada
+  if (!fact.isInteger || fact.pow === 0) {
+    return { factor: value, exp: ratioExp, unit: symbols[to] };
+  }
+
+  if (ratioExp > 0) {
+    // Ej: de MB a B → multiplicamos por 2^(ratioExp)
+    // valor * 2^(ratioExp) = (rest * 2^fact.pow) * 2^ratioExp
+    const totalExp = fact.pow + ratioExp;
+    return { factor: fact.rest, exp: totalExp, unit: symbols[to] };
+  } else {
+    // Ej: de B a MB → multiplicamos por 2^(ratioExp) con ratioExp < 0
+    // valor * 2^(ratioExp) = (rest * 2^fact.pow) * 2^(-k) = rest * 2^(fact.pow - k)
+    const k = -ratioExp; // k > 0
+    const totalExp = fact.pow - k;
+    return { factor: fact.rest, exp: totalExp, unit: symbols[to] };
+  }
+}
+
+    // ---------- Sección de práctica ----------
+    const practiceValueInput = document.getElementById("practiceValue");
+    const practiceFromUnit = document.getElementById("practiceFromUnit");
+    const practiceToUnit = document.getElementById("practiceToUnit");
+    const practiceArea = document.getElementById("practiceArea");
+    const createExerciseBtn = document.getElementById("createExerciseBtn");
+    let practiceSolution = null;
+
+    function normVal(str) {
+      return str.replace(/\s+/g, "").toLowerCase();
+    }
+
+    function normUnit(str) {
+      const raw = str.trim();
+      if (!raw) return "";
+      const lower = raw.toLowerCase();
+
+      if (lower === "b" || lower === "bit" || lower === "bits") return "b";
+      if (raw === "B" || lower === "byte" || lower === "bytes") return "B";
+      if (lower === "kb" || lower === "kib") return "KB";
+      if (lower === "mb" || lower === "mib") return "MB";
+      if (lower === "gb" || lower === "gib") return "GB";
+      if (lower === "tb" || lower === "tib") return "TB";
+
+      return raw;
+    }
+
+    function createPracticeExercise() {
+      const rawValue = practiceValueInput.value.trim().replace(",", ".");
+      const value = parseFloat(rawValue);
+
+      if (rawValue === "" || isNaN(value)) {
+        practiceArea.innerHTML = '<span class="error">Por favor, introduce un número válido para el ejercicio.</span>';
+        practiceSolution = null;
+        return;
+      }
+
+      const from = practiceFromUnit.value;
+      const to = practiceToUnit.value;
+
+      const steps = getSteps(from, to);
+      if (steps.length === 0) {
+        practiceArea.innerHTML = '<span class="error">Las unidades de origen y destino son iguales. No hay conversión que practicar.</span>';
+        practiceSolution = null;
+        return;
+      }
+
+      const valueStr = value.toLocaleString("es-ES");
+      const fromSymbol = symbols[from];
+
+      practiceSolution = steps.map((s) => {
+        let numVal, numUnit, denVal, denUnit;
+        if (s.dir === 1) {
+          numVal = "1";
+          numUnit = symbols[s.toUnit];
+          denVal = `2^${s.expStep}`;
+          denUnit = symbols[s.fromUnit];
+        } else {
+          numVal = `2^${s.expStep}`;
+          numUnit = symbols[s.toUnit];
+          denVal = "1";
+          denUnit = symbols[s.fromUnit];
+        }
+        return { numVal, numUnit, denVal, denUnit };
+      });
+
       let html = `
         <div class="steps">
           <div class="steps-line">
-            <span class="steps-value">${valueStr} <span class="unit">${initialUnitHTML}</span></span>
+            <span class="steps-value">${valueStr} <span class="unit">${fromSymbol}</span></span>
             <span class="steps-eq">=</span>
-            <span class="steps-value">${valueStr} <span class="unit cancelled">${initialUnitHTML}</span></span>
+            <span class="steps-value">${valueStr} <span class="unit cancelled">${fromSymbol}</span></span>
             <span class="steps-mul">×</span>
       `;
 
       steps.forEach((s, index) => {
-        const isLast = index === steps.length - 1;
-
-        let numUnit = symbols[s.toUnit];
-        let denUnit = symbols[s.fromUnit];
-
-        let numUnitClass = !isLast ? "cancelled" : "";
-        let denUnitClass = "cancelled";
-
-        let numHTML, denHTML;
-
-        if (s.dir === 1) {
-          numHTML = `1 <span class="${numUnitClass}">${numUnit}</span>`;
-          denHTML = `${powHTML(s.expStep)} <span class="${denUnitClass}">${denUnit}</span>`;
-        } else {
-          numHTML = `${powHTML(s.expStep)} <span class="${numUnitClass}">${numUnit}</span>`;
-          denHTML = `1 <span class="${denUnitClass}">${denUnit}</span>`;
-        }
-
         if (index > 0) {
           html += `<span class="steps-mul">×</span>`;
         }
 
         html += `
           <span class="fraction">
-            <span class="top">${numHTML}</span>
-            <span class="bottom">${denHTML}</span>
+            <span class="top">
+              <input class="frac-input" id="p_numVal_${index}" placeholder="valor" />
+              <input class="frac-input unit" id="p_numUnit_${index}" placeholder="unidad" />
+            </span>
+            <span class="bottom">
+              <input class="frac-input" id="p_denVal_${index}" placeholder="valor" />
+              <input class="frac-input unit" id="p_denUnit_${index}" placeholder="unidad" />
+            </span>
           </span>
         `;
       });
 
       html += `
-            <span class="steps-eq">=</span>
-            <span class="steps-result">${finalShortHTML}</span>
           </div>
         </div>
+        <button id="gradePracticeBtn" class="practice-grade-btn">Corregir</button>
+        <div id="practiceFeedback" class="steps-text"></div>
       `;
 
-      return html;
+      practiceArea.innerHTML = html;
+
+      const gradeBtn = document.getElementById("gradePracticeBtn");
+      gradeBtn.addEventListener("click", gradePractice);
     }
 
-    function convert() {
-      const rawValue = valueInput.value.trim().replace(",", ".");
-      const value = parseFloat(rawValue);
+    function gradePractice() {
+      if (!practiceSolution) return;
 
-      if (rawValue === "" || isNaN(value)) {
-        resultDiv.innerHTML = '<span class="error">Por favor, introduce un número válido.</span>';
-        return;
+      let correctFractions = 0;
+      const totalFractions = practiceSolution.length;
+
+      practiceSolution.forEach((sol, index) => {
+        const numValInput = document.getElementById(`p_numVal_${index}`);
+        const numUnitInput = document.getElementById(`p_numUnit_${index}`);
+        const denValInput = document.getElementById(`p_denVal_${index}`);
+        const denUnitInput = document.getElementById(`p_denUnit_${index}`);
+
+        [numValInput, numUnitInput, denValInput, denUnitInput].forEach(el =>
+          el.classList.remove("ok", "wrong")
+        );
+
+        const numValOk = normVal(numValInput.value) === normVal(sol.numVal);
+        const numUnitOk = normUnit(numUnitInput.value) === normUnit(sol.numUnit);
+        const denValOk = normVal(denValInput.value) === normVal(sol.denVal);
+        const denUnitOk = normUnit(denUnitInput.value) === normUnit(sol.denUnit);
+
+        if (numValOk) numValInput.classList.add("ok"); else numValInput.classList.add("wrong");
+        if (numUnitOk) numUnitInput.classList.add("ok"); else numUnitInput.classList.add("wrong");
+        if (denValOk) denValInput.classList.add("ok"); else denValInput.classList.add("wrong");
+        if (denUnitOk) denUnitInput.classList.add("ok"); else denUnitInput.classList.add("wrong");
+
+        if (numValOk && numUnitOk && denValOk && denUnitOk) correctFractions++;
+      });
+
+      const feedback = document.getElementById("practiceFeedback");
+      if (!feedback) return;
+
+      if (correctFractions === totalFractions) {
+        feedback.innerHTML = `✅ ¡Perfecto! Has acertado las ${totalFractions} fracciones.`;
+      } else {
+        feedback.innerHTML = `Has acertado ${correctFractions} de ${totalFractions} fracciones. Revisa las que aparecen en rojo.`;
       }
+    }
 
-      const from = fromUnit.value;
-      const to = toUnit.value;
+    createExerciseBtn.addEventListener("click", createPracticeExercise);
 
-      const powerInfo = getPowerResult(value, from, to);
-      const stepsHTML = buildConversionSteps(value, from, to, powerInfo.shortHTML);
+    // ---------- Modo examen ----------
+    const examQuestionCount = document.getElementById("examQuestionCount");
+    const generateExamBtn = document.getElementById("generateExamBtn");
+    const examArea = document.getElementById("examArea");
+    let examQuestions = [];
 
-      resultDiv.innerHTML = `
-        ${stepsHTML}
-        <div class="steps-text">
-          Resultado en forma de potencias de 2: <strong>${powerInfo.shortHTML}</strong>
+    function randomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function generateRandomQuestion() {
+      let fromIdx = randomInt(0, order.length - 1);
+      let toIdx;
+      do {
+        toIdx = randomInt(0, order.length - 1);
+      } while (toIdx === fromIdx);
+
+      const from = order[fromIdx];
+      const to = order[toIdx];
+
+      const allowedValues = [1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 64];
+      const value = allowedValues[randomInt(0, allowedValues.length - 1)];
+
+      const decomp = getPowerDecomposition(value, from, to);
+
+      return {
+        value,
+        from,
+        to,
+        factor: decomp.factor,
+        exp: decomp.exp,
+        unit: decomp.unit
+      };
+    }
+
+function generateExam() {
+  const n = parseInt(examQuestionCount.value, 10) || 5;
+  examQuestions = [];
+  for (let i = 0; i < n; i++) {
+    examQuestions.push(generateRandomQuestion());
+  }
+
+  let html = "";
+  examQuestions.forEach((q, idx) => {
+    const valueStr = q.value.toLocaleString("es-ES");
+    const fromSymbol = symbols[q.from];
+    const toSymbol = symbols[q.to];
+    html += `
+      <div class="exam-question">
+        <div class="exam-question-title">
+          Pregunta ${idx + 1}: convierte <strong>${valueStr} ${fromSymbol}</strong> a <strong>${toSymbol}</strong>.
         </div>
-        ${powerInfo.detailHTML ? `<div class="steps-text">${powerInfo.detailHTML}</div>` : ""}
-      `;
+        <div class="exam-answer-row">
+          Respuesta: 
+          <input class="frac-input" id="ex_factor_${idx}" placeholder="a" />
+          &times; 2^
+          <input class="frac-input" id="ex_exp_${idx}" placeholder="n" />
+          <span class="unit">${toSymbol}</span>
+        </div>
+        <div id="examReview_${idx}" class="steps-text"></div>
+      </div>
+    `;
+  });
+
+  html += `
+    <button id="gradeExamBtn" class="practice-grade-btn">Corregir examen</button>
+    <div id="examFeedback" class="steps-text"></div>
+  `;
+
+  examArea.innerHTML = html;
+
+  const gradeExamBtn = document.getElementById("gradeExamBtn");
+  gradeExamBtn.addEventListener("click", gradeExam);
+}
+
+ function gradeExam() {
+  if (!examQuestions || examQuestions.length === 0) return;
+
+  let correct = 0;
+  const total = examQuestions.length;
+
+  examQuestions.forEach((q, idx) => {
+    const factorInput = document.getElementById(`ex_factor_${idx}`);
+    const expInput = document.getElementById(`ex_exp_${idx}`);
+    const reviewDiv = document.getElementById(`examReview_${idx}`);
+
+    factorInput.classList.remove("ok", "wrong");
+    expInput.classList.remove("ok", "wrong");
+
+    const factorStr = factorInput.value.trim().replace(",", ".");
+    const expStr = expInput.value.trim();
+
+    const factorUser = parseFloat(factorStr);
+    const expUser = parseInt(expStr, 10);
+
+    const factorOk = !isNaN(factorUser) && Math.abs(factorUser - q.factor) < 1e-6;
+    const expOk = !isNaN(expUser) && expUser === q.exp;
+
+    if (factorOk) factorInput.classList.add("ok"); else factorInput.classList.add("wrong");
+    if (expOk) expInput.classList.add("ok"); else expInput.classList.add("wrong");
+
+    // Texto de retroalimentación por pregunta
+    if (reviewDiv) {
+      if (factorOk && expOk) {
+        reviewDiv.innerHTML = `✅ Bien: a = <strong>${q.factor}</strong>, n = <strong>${q.exp}</strong>.`;
+      } else {
+        reviewDiv.innerHTML = `❌ Correcto: a = <strong>${q.factor}</strong>, n = <strong>${q.exp}</strong>.`;
+      }
     }
 
-    convertBtn.addEventListener("click", convert);
+    if (factorOk && expOk) correct++;
+  });
 
-    valueInput.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        convert();
-      }
-    });
+  const feedback = document.getElementById("examFeedback");
+  if (!feedback) return;
+
+  const gradePercent = Math.round((correct / total) * 100);
+  if (correct === total) {
+    feedback.innerHTML = `Retroalimentación: ✅ ¡Excelente! Has acertado las ${total} preguntas. Nota: ${gradePercent}%.`;
+  } else {
+    feedback.innerHTML = `Retroalimentación: has acertado ${correct} de ${total} preguntas. Nota aproximada: ${gradePercent}%. Revisa las respuestas marcadas en rojo y la solución de cada pregunta.`;
+  }
+}
+
+    generateExamBtn.addEventListener("click", generateExam);
   </script>
 </body>
 </html>
-
